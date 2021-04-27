@@ -547,32 +547,14 @@ Reminder :
 
 Callback  | Interface contract | Required
 ---------|----------|---------
-<<<<<<< HEAD
-<<<<<<< HEAD:docs/2. Basics/Subscriptions.md
-=======
->>>>>>> 08d0c21... Add labels documentation
-quote |  [/quotes](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1quotes/post) | **YES**
-delivery | [/deliveries](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1deliveries/post) | **YES**
-cancelDelivery | [/deliveries/{deliveryId}](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1deliveries~1%7BdeliveryId%7D/delete) | **YES**
-cancelQuote | [/quotes/{quoteId}](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1quotes~1%7BquoteId%7D/delete) | NO
-score |  [/deliveries/{deliveryId}/score](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1deliveries~1%7BdeliveryId%7D~1score/put) | NO
-update |  [/deliveries/{deliveryId}](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1deliveries~1%7BdeliveryId%7D/patch) | NO
-pickupPoint |  [/pickupPoints](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1pickupPoints/get) | NO
-<<<<<<< HEAD
-=======
-quote |  [/quotes](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1quotes/post) | **OUI**
-delivery | [/deliveries](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1deliveries/post) | **OUI**
-cancelDelivery | [/deliveries/{deliveryId}](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1deliveries~1%7BdeliveryId%7D/delete) | **OUI**
-cancelQuote | [/quotes/{quoteId}](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1quotes~1%7BquoteId%7D/delete) | NON
-score |  [/deliveries/{deliveryId}/score](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1deliveries~1%7BdeliveryId%7D~1score/put) | NON
-update |  [/deliveries/{deliveryId}](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1deliveries~1%7BdeliveryId%7D/patch) | NON
-pickupPoint |  [/pickupPoints](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1pickupPoints/get) | NON
-label |  [/labels/{labelId}](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1labels~1{labelId}/get) | NON
->>>>>>> master:docs/Bases/Souscriptions.md
-=======
-label |  [/labels/{labelId}](https://woop.stoplight.io/docs/carrier/woop_to_carrier.v1.4.1.json/paths/~1labels~1{labelId}/get) | NO
->>>>>>> 08d0c21... Add labels documentation
-
+quote |  [/quotes](https://woop.stoplight.io/docs/carrier/branches/english/woop_to_carrier.v1.4.1.json/paths/~1quotes/post) | **YES**
+delivery | [/deliveries](https://woop.stoplight.io/docs/carrier/branches/english/woop_to_carrier.v1.4.1.json/paths/~1deliveries/post) | **YES**
+cancelDelivery | [/deliveries/{deliveryId}](https://woop.stoplight.io/docs/carrier/branches/english/woop_to_carrier.v1.4.1.json/paths/~1deliveries~1%7BdeliveryId%7D/delete) | **YES**
+cancelQuote | [/quotes/{quoteId}](https://woop.stoplight.io/docs/carrier/branches/english/woop_to_carrier.v1.4.1.json/paths/~1quotes~1%7BquoteId%7D/delete) | NO
+score |  [/deliveries/{deliveryId}/score](https://woop.stoplight.io/docs/carrier/branches/english/woop_to_carrier.v1.4.1.json/paths/~1deliveries~1%7BdeliveryId%7D~1score/put) | NO
+update |  [/deliveries/{deliveryId}](https://woop.stoplight.io/docs/carrier/branches/english/woop_to_carrier.v1.4.1.json/paths/~1deliveries~1%7BdeliveryId%7D/patch) | NO
+pickupPoint |  [/pickupPoints](https://woop.stoplight.io/docs/carrier/branches/english/woop_to_carrier.v1.4.1.json/paths/~1pickupPoints/get) | NO
+label |  [/labels/{labelId}](https://woop.stoplight.io/docs/carrier/branches/english/woop_to_carrier.v1.4.1.json/paths/~1labels~1{labelId}/get) | NO
 
 <!-- theme: warning -->
 

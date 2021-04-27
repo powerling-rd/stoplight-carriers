@@ -767,21 +767,11 @@
         },
         "responses": {
           "201": {
-            "description": "Delivery is accepted, a 'deliveryId' is returned, in addition an array of 'packages' IDs can be returned in case of tracking by package.",
+            "description": "Delivery is accepted, a 'deliveryId' is returned, in addition an array of 'packages' IDs can be returned in case of tracking by package, an array of shipping labels can also be returned.",
             "content": {
               "application/json": {
                 "schema": {
-                  "oneOf": [
-                    {
-                      "$ref": "#/components/schemas/deliveryCreated"
-                    },
-                    {
-                      "$ref": "#/components/schemas/deliveryCreatedPackages"
-                    },
-                    {
-                      "$ref": "#/components/schemas/deliveryCreatedReference"
-                    }
-                  ]
+                  "$ref": "#/components/schemas/deliveryCreated"
                 },
                 "examples": {
                   "Default example": {
@@ -803,6 +793,31 @@
                     "value": {
                       "deliveryId": "5q4f5q4zd",
                       "externalReference": "12254-AX"
+                    }
+                  },
+                  "Example with shipping labels": {
+                    "value": {
+                      "deliveryId": "5q4f5q4zd",
+                      "labels": [
+                        {
+                          "id": "LBL001",
+                          "type": "base64",
+                          "mode": "jpeg",
+                          "value": "UklGRvwNAABXRUJQVlA4TPANAAA...",
+                          "packageId": "5q4f5q4zd"
+                        },
+                        {
+                          "id": "LBL002",
+                          "type": "url",
+                          "mode": "jpeg",
+                          "value": "http://url.com",
+                          "packageId": "5q5f5q4zb"
+                        },
+                        {
+                          "id": "LBL003",
+                          "packageId": "5q5f5q4zb"
+                        }
+                      ]
                     }
                   }
                 }
@@ -1484,6 +1499,95 @@
             "$ref": "#/components/parameters/queryPickupPointCategory"
           }
         ]
+      }
+    },
+    "/labels/{labelId}": {
+      "get": {
+        "summary": "Retrieving a label",
+        "description": "Retrieving a label in the requested format",
+        "operationId": "getLabelById",
+        "tags": [
+          "Label"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/pathLabelId"
+          },
+          {
+            "in": "query",
+            "required": true,
+            "name": "mode",
+            "description": "Request format of the label",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "zpl",
+                "pdf",
+                "jpg",
+                "jpeg"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK, label in base64",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "label": {
+                      "type": "string",
+                      "description": "Label in base64"
+                    }
+                  },
+                  "required": [
+                    "label"
+                  ]
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "label": "UklGRvwNAABXRUJQVlA4TPANAAAvhoAKEPVgtLZ"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Missing or incorrect elements in body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "reasons": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "example": "Missing argument 'xxxxx'"
+                      }
+                    }
+                  }
+                },
+                "examples": {
+                  "Example": {
+                    "value": {
+                      "reasons": [
+                        "Missing argument 'xxxxx'"
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "The 'labelId' does not exist"
+          }
+        }
       }
     }
   },
@@ -2556,64 +2660,35 @@
         "properties": {
           "deliveryId": {
             "type": "string",
-            "description": "Unique delivery ID"
-          }
-        },
-        "description": "Delivery creation response informations.",
-        "title": "Response informations (deliveryCreated)",
-        "x-examples": {
-          "Example": {
-            "deliveryId": "1123663GHG"
-          }
-        }
-      },
-      "deliveryCreatedReference": {
-        "properties": {
-          "deliveryId": {
-            "type": "string"
+            "description": "Unique identifier of the delivery sent by carrier. Please note that this identifier must be unique to the order."
           },
           "externalReference": {
-            "type": "string"
-          }
-        },
-        "title": "Response informations : Creation of a delivery with a reference (deliveryCreatedPackages))",
-        "description": "Informations about delivery creation with reference response"
-      },
-      "deliveryCreatedPackages": {
-        "allOf": [
-          {
-            "$ref": "#/components/schemas/deliveryCreated"
+            "type": "string",
+            "description": "Delivery reference"
           },
-          {
-            "type": "object",
-            "properties": {
-              "packages": {
-                "type": "array",
-                "description": "Informations about packages",
-                "items": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    }
-                  }
+          "packages": {
+            "type": "array",
+            "description": "Informations about packages",
+            "items": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
                 }
               }
             }
+          },
+          "labels": {
+            "type": "array",
+            "description": "Informations about delivery labels",
+            "items": {
+              "$ref": "#/components/schemas/label"
+            }
           }
-        ],
-        "title": "Response informations : Creation of a delivery with a package (deliveryCreatedPackages))",
-        "description": "Informations about delivery creation with a package response",
-        "x-examples": {
-          "Example": {
-            "deliveryId": "113123765",
-            "packages": [
-              {
-                "id": "JU7798"
-              }
-            ]
-          }
-        }
+        },
+        "required": [
+          "deliveryId"
+        ]
       },
       "coordinates": {
         "type": "object",
@@ -2681,6 +2756,46 @@
             "$ref": "#/components/schemas/currency"
           }
         }
+      },
+      "label": {
+        "description": "Delivery label",
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "description": "Label id"
+          },
+          "type": {
+            "type": "string",
+            "description": "Sending type of label",
+            "enum": [
+              "base64",
+              "url"
+            ]
+          },
+          "mode": {
+            "type": "string",
+            "description": "Label format",
+            "enum": [
+              "zpl",
+              "pdf",
+              "jpg",
+              "jpeg"
+            ]
+          },
+          "value": {
+            "type": "string",
+            "description": "Label in base64 or url to the label"
+          },
+          "packageId:": {
+            "type": "string",
+            "description": "Id of the associated label"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "title": "Label"
       }
     },
     "parameters": {
@@ -2773,6 +2888,15 @@
         "schema": {
           "type": "string"
         }
+      },
+      "pathLabelId": {
+        "in": "path",
+        "required": true,
+        "name": "labelId",
+        "description": "Label ID",
+        "schema": {
+          "type": "string"
+        }
       }
     },
     "securitySchemes": {
@@ -2801,6 +2925,9 @@
     },
     {
       "name": "Package"
+    },
+    {
+      "name": "Label"
     }
   ]
 }

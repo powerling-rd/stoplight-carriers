@@ -895,7 +895,7 @@
         "tags": [
           "Delivery"
         ],
-        "description": "Allows receiving delivery cancellation requests.",
+        "description": "This method allows you to send a cancellation request to confirm a delivery with the carrier. The carrier does not need to make a cancellation request upon receipt of this request.",
         "operationId": "deleteDelivery",
         "parameters": [
           {

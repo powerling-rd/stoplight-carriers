@@ -12,6 +12,7 @@ Code| Label
 `SERVICE_PICKUP_POINT`| Pickup point delivery
 `SERVICE_SELECTED_ROOM`| Delivery in room of choice
 `SERVICE_SIMPLE_INSTALL`| Simple putting into service
+`SERVICE_RETURN`| Product return
 `SERVICE_COMPLEX_INSTALL`| Complex putting into service
 `SERVICE_STANDARD_TAXI`| Simple delivery by taxi (sedan type)
 `SERVICE_XL_TAXI`| Simple delivery by taxi (Van type)

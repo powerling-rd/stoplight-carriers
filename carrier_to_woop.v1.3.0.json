@@ -149,6 +149,9 @@
           },
           "404": {
             "description": "The 'deliveryId' has not been found."
+          },
+          "409": {
+            "description": "An action is already underway on this delivery"
           }
         },
         "summary": "Delivery status update",
@@ -1020,7 +1023,7 @@
           }
         },
         "responses": {
-          "204": {
+          "200": {
             "description": "Request processed with success"
           },
           "400": {

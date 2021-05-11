@@ -31,6 +31,8 @@ During its life cycle, the order goes through different statuses. Those we ident
 | `DELIVERY_REPLANNED`             | Delivery date rescheduled by an appointment with the customer |
 
 
+The statuses `DELIVERY_PICK_UP_PARTIALLY` and `DELIVERY_DELIVERED_PARTIALLY` are reserved for delivery and are not allowed for package tracking.
+
 ### Returns and errors handling
 
 ![get-started-icon](../../assets/images/product-return-workflow.png)

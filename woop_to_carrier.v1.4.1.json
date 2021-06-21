@@ -1209,10 +1209,16 @@
                     "score": [
                       {
                         "note": 9,
-                        "type": "SCORE_TYPE_RECOMMENDATION"
+                        "type": "SCORE_TYPE_RECOMMENDATION",
+                        "includedInCarrierScore": false
                       }
                     ],
-                    "comment": "I strongly recommend !"
+                    "comment": [
+                      {
+                        "answer": "No comment !",
+                        "question": "Do you have any suggestions to share with us to help us improve our delivery service?"
+                      }
+                    ]
                   }
                 }
               }
@@ -1982,10 +1988,16 @@
             "score": [
               {
                 "note": 8,
-                "type": "SCORE_TYPE_RECOMMENDATION"
+                "type": "SCORE_TYPE_RECOMMENDATION",
+                "includedInCarrierScore": true
               }
             ],
-            "comment": "Awesome !"
+            "comment": [
+              {
+                "answer": "No, correct delivery.",
+                "question": "Do you have any suggestions to share with us to help us improve our delivery service?"
+              }
+            ]
           }
         },
         "type": "object",
@@ -1998,7 +2010,11 @@
             }
           },
           "comment": {
-            "type": "string"
+            "type": "array",
+            "description": "List of customer comments",
+            "items": {
+              "$ref": "#/components/schemas/scoreComment"
+            }
           }
         },
         "required": [
@@ -2013,11 +2029,13 @@
         "x-examples": {
           "Recommendation score": {
             "note": 6,
-            "type": "SCORE_TYPE_RECOMMENDATION"
+            "type": "SCORE_TYPE_RECOMMENDATION",
+            "includedInCarrierScore": false
           },
           "Satisfaction score": {
             "note": 9,
-            "type": "SCORE_TYPE_SATISFACTION"
+            "type": "SCORE_TYPE_SATISFACTION",
+            "includedInCarrierScore": true
           }
         },
         "properties": {
@@ -2032,11 +2050,16 @@
               "SCORE_TYPE_SATISFACTION"
             ],
             "description": "Score type"
+          },
+          "includedInCarrierScore": {
+            "type": "boolean",
+            "description": "Included in the calculation of the carrier grade"
           }
         },
         "required": [
           "note",
-          "type"
+          "type",
+          "includedInCarrierScore"
         ]
       },
       "length": {
@@ -2787,7 +2810,7 @@
             "type": "string",
             "description": "Label in base64 or url to the label"
           },
-          "packageId:": {
+          "packageId": {
             "type": "string",
             "description": "Id of the associated label"
           }
@@ -2796,6 +2819,31 @@
           "id"
         ],
         "title": "Label"
+      },
+      "scoreComment": {
+        "title": "Comments on the delivery (scoreComment)",
+        "type": "object",
+        "x-examples": {
+          "Exemple": {
+            "answer": "No comment !",
+            "question": "Do you have any suggestions to share with us to help us improve our delivery service?"
+          }
+        },
+        "description": "Free field for customer comments",
+        "properties": {
+          "answer": {
+            "type": "string",
+            "description": "Response from the end customer"
+          },
+          "question": {
+            "type": "string",
+            "description": "Question asked to the end customer"
+          }
+        },
+        "required": [
+          "answer",
+          "question"
+        ]
       }
     },
     "parameters": {

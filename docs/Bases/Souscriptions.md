@@ -21,7 +21,7 @@ Les données à envoyer sont :
   "properties": {
     "callbacks": {
       "type": "object",
-      "required": [
+      [
         "quote",
         "delivery",
         "cancelDelivery"

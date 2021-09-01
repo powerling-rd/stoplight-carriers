@@ -591,17 +591,10 @@
           "content": {
             "application/json": {
               "schema": {
-                "required": [
-                  "callbacks"
-                ],
+                "type": "object",
                 "properties": {
                   "callbacks": {
                     "type": "object",
-                    "required": [
-                      "quote",
-                      "delivery",
-                      "cancelDelivery"
-                    ],
                     "properties": {
                       "quote": {
                         "type": "object",
@@ -656,9 +649,6 @@
                       },
                       "cancelQuote": {
                         "type": "object",
-                        "required": [
-                          "url"
-                        ],
                         "properties": {
                           "url": {
                             "type": "string",
@@ -669,7 +659,10 @@
                             "description": "Version d'API pour ce callback (voir lastmile_to_carrier)",
                             "example": "1.4.0"
                           }
-                        }
+                        },
+                        "required": [
+                          "url"
+                        ]
                       },
                       "score": {
                         "type": "object",
@@ -687,9 +680,6 @@
                       },
                       "pickupPoint": {
                         "type": "object",
-                        "required": [
-                          "url"
-                        ],
                         "properties": {
                           "url": {
                             "type": "string",
@@ -700,13 +690,13 @@
                             "description": "Version d'API pour ce callback (voir lastmile_to_carrier)",
                             "example": "1.4.0"
                           }
-                        }
+                        },
+                        "required": [
+                          "url"
+                        ]
                       },
                       "price": {
                         "type": "object",
-                        "required": [
-                          "url"
-                        ],
                         "properties": {
                           "url": {
                             "type": "string",
@@ -717,13 +707,13 @@
                             "description": "Version d'API pour ce callback (voir lastmile_to_carrier)",
                             "example": "1.4.0"
                           }
-                        }
+                        },
+                        "required": [
+                          "url"
+                        ]
                       },
                       "label": {
                         "type": "object",
-                        "required": [
-                          "url"
-                        ],
                         "properties": {
                           "url": {
                             "type": "string",
@@ -734,13 +724,13 @@
                             "description": "Version d'API pour ce callback (voir lastmile_to_carrier)",
                             "example": "1.4.0"
                           }
-                        }
+                        },
+                        "required": [
+                          "url"
+                        ]
                       },
                       "status": {
                         "type": "object",
-                        "required": [
-                          "url"
-                        ],
                         "properties": {
                           "url": {
                             "type": "string",
@@ -751,13 +741,13 @@
                             "description": "Version d'API pour ce callback (voir lastmile_to_carrier)",
                             "example": "1.4.0"
                           }
-                        }
+                        },
+                        "required": [
+                          "url"
+                        ]
                       },
                       "update": {
                         "type": "object",
-                        "required": [
-                          "url"
-                        ],
                         "properties": {
                           "url": {
                             "type": "string",
@@ -768,7 +758,10 @@
                             "description": "Version d'API pour ce callback (voir lastmile_to_carrier)",
                             "example": "1.4.0"
                           }
-                        }
+                        },
+                        "required": [
+                          "url"
+                        ]
                       }
                     }
                   },
@@ -781,10 +774,6 @@
                     "type": "array",
                     "items": {
                       "type": "object",
-                      "required": [
-                        "key",
-                        "value"
-                      ],
                       "properties": {
                         "key": {
                           "type": "string"
@@ -792,7 +781,11 @@
                         "value": {
                           "type": "string"
                         }
-                      }
+                      },
+                      "required": [
+                        "key",
+                        "value"
+                      ]
                     }
                   },
                   "auth": {
@@ -808,7 +801,10 @@
                       }
                     ]
                   }
-                }
+                },
+                "required": [
+                  "callbacks"
+                ]
               },
               "examples": {
                 "Basic": {

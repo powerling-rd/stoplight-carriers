@@ -10,11 +10,12 @@ Code| Intitulé
 `TYPOLOGY_FROZEN`| Surgelé
 `TYPOLOGY_GENERIC`| Marchandise générale
 `TYPOLOGY_GROCERY`| Epicerie
-`TYPOLOGY_HOUSEHOLD`| Electroménager D3E
+`TYPOLOGY_SMALL_HOUSEHOLD`| Petit électroménager D3E
+`TYPOLOGY_HOUSEHOLD`| Electroménager moyen D3E
+`TYPOLOGY_LARGE_HOUSEHOLD`| Gros électroménager D3E
 `TYPOLOGY_VOLUMINOUS`| Produit volumineux
 `TYPOLOGY_VOLUMINOUS_FRAGILE`| Produit volumineux et fragile
-`TYPOLOGY_LARGE_HOUSEHOLD`| Gros électroménager (frigo américain, piano, cuisson...)
 `TYPOLOGY_PALLET_GENERIC`| Palette marchandise générale
-`TYPOLOGY_NON_STANDARD`| Produit non standard
+`TYPOLOGY_NON_STANDARD`| Produit non standard 
 
 *La configuration de la prise en charge des typologies par produit est manuelle, veuillez nous contacter.*

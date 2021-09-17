@@ -2227,7 +2227,8 @@
           "TYPOLOGY_VOLUMINOUS_FRAGILE",
           "TYPOLOGY_LARGE_HOUSEHOLD",
           "TYPOLOGY_PALLET_GENERIC",
-          "TYPOLOGY_NON_STANDARD"
+          "TYPOLOGY_NON_STANDARD",
+          "TYPOLOGY_SMALL_HOUSEHOLD"
         ],
         "title": "Typologie de produit (productType)",
         "description": "Précise la typologie d'un produit.",

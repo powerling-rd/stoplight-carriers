@@ -11,7 +11,7 @@ Code| Intitulé
 `TYPOLOGY_GENERIC`| Marchandise générale
 `TYPOLOGY_GROCERY`| Epicerie
 `TYPOLOGY_SMALL_HOUSEHOLD`| Petit électroménager D3E
-`TYPOLOGY_HOUSEHOLD`| Electroménager moyen D3E
+`TYPOLOGY_HOUSEHOLD`| Electroménager D3E
 `TYPOLOGY_LARGE_HOUSEHOLD`| Gros électroménager D3E
 `TYPOLOGY_VOLUMINOUS`| Produit volumineux
 `TYPOLOGY_VOLUMINOUS_FRAGILE`| Produit volumineux et fragile
